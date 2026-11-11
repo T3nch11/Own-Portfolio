@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marius Angelo Enano | Developer Portfolio</title>
+    <style>
+        :root {
+            --accent-purple: #4f46e5;
+            --accent-light: #6366f1;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdena, san-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Top Navigation Bar */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(248, 250, 252, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        /* Logo */
+        .nav-logo { 
+            font-size: 1,25rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-logo span {
+            color: var(--accent-purple);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-purple);
+        }
+        /* Header Section */
+        header#home {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 40px 0 60px 0;
+            flex-wrap: wrap-reverse;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-height: 320px;
+        }
+
+        .category-tag {
+            color: var(--accent-purple);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppecase;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .hero-title .highlight {
+            color: var(--accent-purple);
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 480px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-purple);
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: #4338ca;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent-purple);
+            border: 1.5px solid var(--accent-purple);
+            padding:  12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e0e7ff;
+        }
+
+        .hero-image {
+            width: 320px;
+            height: 360px;
+            background-color: #f1f5f9;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        main {
+            padding-bottom: 60px;
+        }
+
+        .section-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 40px;
+            margin-top: 30px;
+            box-shadow: 0 4px 15px rgba(0,0, 0, 0.03)
+        }
+
+        .section-header {
+            margin-bottom: 24px;
+        }
+
+        .section-subtitle {
+            color: var(--accent-purple);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            about-grid {
+                grid-template-columns:  1fr;
+            }
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .about-text p strong {
+            color: var(--text-dark);
+        }
+
+        .about-details {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .detail-box {   
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 14px 18px;
+        }
+
+        .detail-label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        .detail-val {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .skills-intro {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns:  repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .skill-card {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            cursor: pointer;
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-purple);
+            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.12);
+        }
+
+        .skill-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #e0e7ff;
+            color: var(--accent-purple);
+            font-weight: 800;
+            font-size: 0.85rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: background-color 0.25s, color 0.25s;
+        }
+
+        .skill-card:hover .skill-icon {
+            background-color: var(--accent-purple);
+            color: #ffffff;
+        }
+
+        .skill-info {
+            flex: 1;
+        }
+
+        .skill-info h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 6px;
+            background-color: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background-color: var(--accent-purple);
+            border-radius: 10px;
+            transition: width 0.4s ease-in-out;
+        }
+
+        .html-fill {width: 90%;}
+        .css-fill  {width: 85%;}
+        .js-fill   {width: 75%;}
+        .git.fill  {width: 80%;}
+        .py-fill   {width: 70%;}
+        .fig-fill  {width: 90%;}
+        .db-fill   {width: 65%;}
+
+        .skill-card:hover .skill-fill {
+            background-color: var(--accent-light);
+            filter: brightness(1.1);
+        }
+        /* Education Section */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .edu-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--card-bg);
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        .edu-table th {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-weight: 700;
+            padding: 16px 20px;
+            border-bottom: 2px solid var(--border-color);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.8px;
+        }
+
+        .edu-table td {
+            padding: 16px 20px;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .edu-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .category-cell {
+            width: 25%;
+            color: var(--text-dark) !important;
+            font-weight: 600;
+        }
+
+        .edu-table tbody tr:hover td {
+            background-color: #f1f5f9;
+            color: var(--text-dark);
+        }
+
+        .spec-badge {
+            display: inline-block;
+            background-color: #e0e7ff;
+            color: var(--accent-purple);
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-left: 8px;
+        }
+
+        .year-badge {
+            display: inline-block;
+            background-color: #dcfce7;
+            color: #15803d;
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(32px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .project-card :hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-purple);
+            box-shadow: 0 12px 24px rgba(79, 70, 229, 0.1);
+        }
+
+        .project-type {
+            color: var(--accent-purple);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .project-tags span {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-dark);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .project-footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 14px;
+        }
+
+        .project-link {
+            color: var(--accent-purple);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: color 0.2s ease, padding-left 0.2s ease;
+            display: inline-block;
+        }
+
+        .project-card:hover .project-link {
+            color: #4338ca;
+            padding-left: 4px;
+        }
+
+        .goals-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .goals-category-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--accent-purple);
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .goals-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            padding: 0;
+        }
+
+        .goal-item {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            transition: border-color 0.25s ease, box-shadow 0.25s, background-color 0.25s ease;
+        }
+
+        .goal-item:hover {
+            border-color: var(--accent-purple);
+            background-color: #ffffff;
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.08);
+        }
+
+        .goal-number {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--accent-purple);
+            background-color: #e0e7ff;
+            border-radius: 8px;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        .goal-item:hover .goal-number {
+            background-color: var(--accent-purple);
+            color: #ffffff;
+        }
+        .goal-content h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .goal-content p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .goals-intro {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-lead {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .email-box {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 18px 26px;
+        }
+
+        .email-label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .email-link {
+            color: var(--accent-purple);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: color 0.2s ease, padding-left 0.2s ease;
+            display: inline-block;
+        }
+
+        .email-link:hover {
+            color: #4338ca;
+            padding-left: 4px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 0.88rem;
+            font-weight: 600;
+             color: var(--text-dark);
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px 14px ;
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-dark);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+            background-color: #ffffff;
+        }
+
+        .btn-submit {
+            background: var(--accent-purple);
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.15s ease;
+            align-self: flex-start;
+        }
+
+        .btn-submit:hover {
+            background-color: #4338ca;
+            transform: translateY(-2px);
+        }
+
+        .form-note {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-top: 4px;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 30px 0 20px 0;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .footer-content p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .footer-tagline {
+            font-size: 0.8rem !important;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Section -->
+         <nav class="top-nav">
+            <div class="nav-container">
+                <a href="#home" class="nav-logo">M.A.E <span>.</span></a>
+                <div class="nav-links">
+                        <a href="#about">About Me</a>
+                        <a href="#skills">My Skills</a>
+                        <a href="#education">Education</a>
+                        <a href="#projects">My Projects</a>
+                        <a href="#goals">My Goals</a>
+                        <a href="#contact">Contact Me</a>
+                </div>
+            </div>
+         </nav>
+
+    <div class="container">
+         <!--Header Section -->
+         <header id="home">
+            <div class="hero-text">
+                <span class="category-tag">BSIT STUDENT</span>
+                <h1 class="hero-title">
+                    Hi, I'm <span class="highlight">Marius</span>. Aspiring to become Web Dev & UI/UX Designer.
+                </h1>
+                <p class="hero-subtitle">
+                    IT Student at NU Fairview who learns by real website with HTML, CSS, and Javascript.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn-primary">View my projects</a>
+                    <a href="contact" class="btn-secondary">Let's Talk!</a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img src="Profile.jpg" alt="Profile ni marius">
+            </div>
+         </header>
+         <main>
+            <!--About Me Section-->
+            <section id="about" class="section-card">
+                <div class="section-header">
+                    <span class="section-subtitle">GET TO KNOW ABOUT ME</span>
+                    <h2>About Me</h2>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>
+                            Hello! I am <strong>Marius Angelo Enano</strong>, a passionate Information Technology student at National University Fairview.
+                        </p>
+                        <p>
+                            I focus on building clean website, designing website, responsive web application, prototyping user-friendly interfaces, and solving real-world programming challenges using modern frontend tools.
+                        </p>
+                        <p>
+                            Beyong writing code in VS Code, I enjoy exploring game development logic, digital illustration, and creating interactive digtal projects that connect logic with creativity.
+                        </p>
+                    </div>
+                    <div class="about-details">
+                        <div class="detail-box">
+                            <span class="detail-label">Location</span>
+                            <span class="detail-val">Marilao, Bulacan, Philippines</span>
+                        </div>
+                        <div class="detail-box">
+                            <span class="detail-label">Education</span>
+                            <span class="detail-val">BSIT - NU Fairview</span>
+                        </div>
+                        <div class="detail-box">
+                            <span class="detail-label">Interests</span>
+                            <span class="detail-val">Web Dev, Game Logic, UI/UX</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--Technical Skills -->
+            <section id="skills" class="section-card">
+                <div class="section-header">
+                    <span class="section-subtitle">MY TOOLKIT</span>
+                    <h2>Technical Skills</h2>
+                </div>
+                <p class="skills-intro">Hover over each card to highlight the skill proeficiency and technology scope.</p>
+
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">HTML</div>
+                        <div class="skill-info">
+                            <h3>HTML5 & Semantic Markup</h3>
+                            <div class="skill-bar"><div class="skill-fill html-fill"></div></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">CSS</div>
+                        <div class="skill-info">
+                            <h3>CSS3, Flexbox, & Grid</h3>
+                            <div class="skill-bar"><div class="skill-fill css-fill"></div></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">JS</div>
+                        <div class="skill-info">
+                            <h3>Javascript (ES6+)</h3>
+                            <div class="skill-bar"><div class="skill-fill js-fill"></div></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">PY</div>
+                        <div class="skill-info">
+                            <h3>Arrays & Sorting</h3>
+                            <div class="skill-bar"><div class="skill-fill py-fill"></div></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">Figma</div>
+                        <div class="skill-info">
+                            <h3>Prototyping & Design</h3>
+                            <div class="skill-bar"><div class="skill-fill fig-fill"></div></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">GIT</div>
+                        <div class="skill-info">
+                            <h3>Git & Github Version Control</h3>
+                            <div class="skill-bar"><div class="skill-fill git-fill"></div></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">DB</div>
+                        <div class="skill-info">
+                            <h3>MYSql, Supabase, & PostgreSQL</h3>
+                            <div class="skill-bar"><div class="skill-fill db-fill"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+             <section id="education" class="section-card">
+                <div class="section-header">
+                    <span class="section-subtitle">ACADEMIC JOURNEY</span>
+                    <h2>Educational Background</h2>
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="edu-table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="category-cell"><strong>School</strong></td>
+                                <td>National University Fairview</td>
+                            </tr>
+                            <tr>
+                                <td class="category-cell"><strong>Program</strong></td>
+                                <td>Bachelor of Science in <span class="spec-badge">Information Technology</span></td>
+                            </tr>
+                            <tr>
+                                <td class="category-cell"><strong>Year Level</strong></td>
+                                <td><span class="year-badge">2nd Year</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+             </section>
+
+            <!-- My Projects -->
+             <section id="projects" class="section-card">
+                <div class="section-header">
+                    <span class="section-subtitle">FEATURED WORK</span>
+                    <h2>My Projects</h2>
+                </div>
+
+                <div class="projects-grid">
+                    <!--Project Card 1 -->
+                    <article class="project-card">
+                        <div class="project-content">
+                            <span class="project-type">Web Application</span>
+                            <h3 class="project-title">KAIN. CAMPUS EAT</h3>
+                            <p class="project-description">
+                                A web-based campus food ordering interface designed to streamline students/teachers order processing and interactive vendor menu navigation for university dining.
+                            </p>
+
+                            <div class="project-tags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>Javascript</span>
+                                <span>Supabase</span>
+                                <span>Power Automate</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://nu-kain.netlify.app/#/" target="_blank" rel="noopener noreferrer" class="project-link">View Project &rarr;</a>
+                        </div>
+                    </article>
+                    <!--Project Card 2-->
+                    <article class="project-card">
+                        <div class="project-content">
+                            <span class="project-type">Frontend Utility</span>
+                            <h3 class="project-title">Kinchi Compute</h3>
+                            <p class="project-description">
+                                A responsive web application calculator with dark mode toggle capabilities, smooth transition effects, and clean modular Javascript code.
+                            </p>
+
+                            <div class="project-tags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>Javascript</span>
+                                <span>GitHub Pages</span>
+                            </div>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://t3nch11.github.io/kinchi-compute/" target="_blank" rel="noopener noreferrer" class="project-link">View Project &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+             </section>
+
+             <!-- My Goals-->
+              <section id="goals" class="section-card">
+                <div class="section-header">
+                    <span class="section-subtitle">FUTURE ASPIRATIONS</span>
+                    <h2>Career & Learning Goal</h2>
+                </div>
+                
+                <p class="goals-intro">My long-term roadmap spanning technology, software creation, aviation, and creative storytelling.</p>
+
+                <div class="goals-container">
+                    <div class="goals-block">
+                        <h3 class="goals-category-title">Professional Career Goals</h3>
+
+                        <ol class="goals-list">
+                            <!--Goal 1-->
+                            <li class="goal-item">
+                                <div class="goal-number">01</div>
+                                <div class="goal-content">
+                                    <h3>Airline Pilot</h3>
+                                    <p>Achieve my ultimate childhhood dream of taking to the skies and mastering aviation as a commercial airline pilot.</p>
+                                </div>
+                            </li>
+                            <!--Goal 2-->
+                            <li class="goal-item">
+                                <div class="goal-number">02</div>
+                                <div class="goal-content">
+                                    <h3>Software / Web Developer</h3>
+                                    <p>Build scalable, modern web applications, high-performance systems, and clean interactive digital platforms.</p>
+                                </div>
+                            </li>
+                            <!--Goal 3-->
+                            <li class="goal-item">
+                                <div class="goal-number">03</div>
+                                <div class="goal-content">
+                                    <h3>Game Developer</h3>
+                                    <p>Create immersive 2D/3D games, bring original fantasy lore to life, and design memorable gameplay mechanics.</p>
+                                </div>
+                            </li>
+                            <!--Goal 4-->
+                            <li class="goal-item">
+                                <div class="goal-number">04</div>
+                                <div class="goal-content">
+                                    <h3>UI/UX  Designer</h3>
+                                    <p>Craft intuitive, accessible, and visually captivating user interfaces for modern web and modern ecosystem.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    <!--Learning Goals-->
+                    <div class="goals-block">
+                        <h3 class="goals-category-title">Continuous Learning Goals</h3>
+                        <ol class="goals-list" start="5">
+                            <li class="goal-item">
+                                <div class="goal-number">05</div>
+                                <div class="goal-content">
+                                    <h3>AI & Data Analytics</h3>
+                                    <p>
+                                        Explore machine learning models, data-driven decision making, and intelligent automation technologies.
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="goal-item">
+                                <div class="goal-number">06</div>
+                                <div class="goal-content">
+                                    <h3>Creative Writing & Storytelling</h3>
+                                    <p>
+                                        Hone my writing skills to publish original fiction, fantasy webtoons, and rich novel series.
+                                    </p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+              </section>
+
+              <!--Contact me section-->
+              <section id="contact" class="section-card">
+                <div class="section-header">
+                    <span class="section-subtitle">GET IN TOUCH</span>
+                    <h2>Contact Me</h2>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <p class="contact-lead">
+                            Have a project idea, question, or just want to connect? Feel free to reach out diretcly via email or drop a message using the form.
+                        </p>
+                        <div class="email-box">
+                            <span class="email-label">Direct Email</span>
+                            <a href="mailto:enanomarius22@gmail.com" class="email-link">enanomarius22@gmail.com &rarr;</a>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Your Name:</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message:</label>
+                            <textarea name="message" id="message" rows="4" placeholder="Write your message here..." required></textarea>
+                        </div>
+
+                        <button type="button" class="btn-submit">Send Message</button>
+                        <p class="form-note">Note: This form is a visual prototype for laboratory activity 1.</p>
+                    </form>
+                </div>
+              </section>
+         </main>
+
+         <!--Footer ko-->
+         <footer>
+            <div class="footer-content">
+                <p>&copy; 2026 Marius Angelo Enano. All right reserved.</p>
+                <p class="footer-tagline">Built with HTML & CSS for Laboratory Activity for WEBPROG.</p>
+            </div>
+         </footer>
+    </div>
+</body>
+</html>
